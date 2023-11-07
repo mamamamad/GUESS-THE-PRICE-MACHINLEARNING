@@ -68,7 +68,7 @@ def ListToDict(name: list, km: list, mode: list, price: list, year: list):
         except:
             pass
 
-    print(len(list_cars))
+    return list_cars
 
 
 # scrool_web("https://bama.ir/car/pride?seller=1")
