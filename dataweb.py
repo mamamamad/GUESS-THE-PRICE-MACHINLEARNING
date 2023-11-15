@@ -60,12 +60,58 @@ def scrool_web(address, number_page=2):
     return ListToDict(li_names, li_km, li_model, li_prices, li_year)
 
 
+def replace_char(n, p, k, m, y):
+
+    if n == "صندوق دار":
+        n = 0
+    elif n == "استیشن":
+        n = 1
+    elif n == "هاچ بک":
+        n = 2
+    else:
+        pass
+    if m == 'SE':
+        m = 0
+
+    elif m == 'SX':
+        m = 1
+
+    elif m == 'دنده':
+        m = 2
+
+    elif m == 'ساده':
+        m = 3
+
+    elif m == 'EX':
+        m = 4
+    elif m == 'SL':
+        m = 5
+    elif m == 'LE':
+        m = 6
+    else:
+        pass
+
+    if k == "کارکرد" or k == 'کارکرده':
+        k = 1
+    else:
+        pass
+
+    if p == "توافقی":
+        p = 1
+    else:
+        pass
+    return [n, p, k, m, y]
+
+
 def ListToDict(name: list, km: list, mode: list, price: list, year: list):
     list_cars = []
 
     for n, p, k, m, y in zip(name, price, km, mode, year):
         try:
-            list_cars.append([n, p, k, m, y])
+            p = p.replace(",", '')
+            k = k.replace(",", '')
+            char = replace_char(n, p, k, m, y)
+            list_cars.append(char)
         except:
             continue
 

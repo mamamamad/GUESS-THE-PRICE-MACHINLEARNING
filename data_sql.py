@@ -25,14 +25,14 @@ def add_to_table(list_cars: list, config: dict):
 
 def read_data(config: dict):
     cnx = mysql.connector.connect(**config)
-    li_cars = []
     add_car = (
         "SELECT * FROM car")
     cursor = cnx.cursor()
     cursor.execute(add_car)
     record = cursor.fetchall()
     
-    return record
+    
 
     cursor.close()
     cnx.close()
+    return record
