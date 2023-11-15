@@ -1,3 +1,6 @@
-s = 'fdasf\nfsafa\nfafas'
-s = s.split()
-print(s[1])
+l = [1,3,4,6,7]
+l = [lambda x:0 x]
+
+
+
+print(l)
